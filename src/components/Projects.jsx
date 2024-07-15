@@ -8,7 +8,7 @@ import prj4 from '../assets/prj4.jpeg';
 import prj5 from '../assets/prj5.jpg';
 import prj6 from '../assets/prj6.jpg';
 import prj7 from '../assets/prj7.jpg';
-import { motion,useAnimation } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 // import { useScroll } from './useScroll';
 import { projectAnimation } from '../animation';
 
@@ -18,21 +18,25 @@ function Projects() {
   useEffect(() => {
     controls.start("show");
   }, [controls]);
+
   const projectData = [
     {
       image: prj1,
       description: 'Simrans Kitchen',
-      github: 'https://github.com/user/project1'
+      github: 'https://github.com/user/project1',
+      additionalLink: 'https://simrans-kitchen.netlify.app/'
     },
     {
       image: prj2,
       description: 'Chat-Application- Using MERN',
-      github: 'https://github.com/user/project2'
+      github: 'https://github.com/user/project2',
+      additionalLink: 'https://live-demo.com/project2'
     },
     {
       image: prj3,
       description: 'Airtable Data Migration',
-      github: 'https://github.com/simrandung/Api-Using-Mongodb'
+      github: 'https://github.com/simrandung/Api-Using-Mongodb',
+      additionalLink: 'https://drive.google.com/file/d/1qafjXdMomCUF5q4faAFBkuoIY1rFc7U3/view?usp=drive_link'
     },
     {
       image: prj4,
@@ -42,17 +46,20 @@ function Projects() {
     {
       image: prj5,
       description: 'Voice Assistant Using Python',
-      github: 'https://github.com/user/project5'
+      github: 'https://github.com/user/project5',
+      additionalLink: 'https://live-demo.com/project5'
     },
     {
       image: prj6,
       description: 'Puppeteer',
-      github: 'https://github.com/simrandung/Puppeteer'
+      github: 'https://github.com/simrandung/Puppeteer',
+      additionalLink: 'https://drive.google.com/drive/folders/1J7n8F4hBgLIU0gY6ldSNiHq36CyTIidy?usp=drive_link'
     },
     {
       image: prj7,
       description: 'Portfolio-version 1',
-      github: 'https://github.com/simrandung/Portfolio'
+      github: 'https://github.com/simrandung/Portfolio',
+      additionalLink: 'https://simrandung-portfolio.netlify.app/'
     }
   ];
 
@@ -64,24 +71,27 @@ function Projects() {
         <h2>Check my awesome projects</h2>
       </div>
       <div className='grid'>
-      {projectData.map(({ image, description, github }, index) => (
+        {projectData.map(({ image, description, github, additionalLink }, index) => (
           <motion.div 
-          
-          key={index} className={`child-${index + 1} grid-box`}
-          variants={projectAnimation}
-          initial="hidden"
-          animate={controls}
-              transition={{
-                delay: 0.03*index,
-                type: "tween",
-                duration: 0.8,
-              }}
-              whileInView={{ opacity: 1 }}>
+            key={index} className={`child-${index + 1} grid-box`}
+            variants={projectAnimation}
+            initial="hidden"
+            animate={controls}
+            transition={{
+              delay: 0.03 * index,
+              type: "tween",
+              duration: 0.8,
+            }}
+            whileInView={{ opacity: 1 }}
+          >
             <img src={image} alt={`prj${index + 1}`} />
             <div className="overlay">
               <div className="text">{description}</div>
               <a href={github} target="_blank" rel="noopener noreferrer">
                 Check on GitHub
+              </a>
+              <a href={additionalLink} target="_blank" rel="noopener noreferrer">
+                Live
               </a>
             </div>
           </motion.div>
@@ -90,10 +100,10 @@ function Projects() {
     </Section>
   )
 }
+
 const Section = styled.section`
 min-height: 100vh;
 padding: 2rem;
-${'' /* background-color:beige; */}
 .sideTitle{
   color:white;
 }
@@ -139,7 +149,6 @@ ${'' /* background-color:beige; */}
         transform: scale(1.1);
         filter: blur(2px);
       }
-
     }
     .overlay {
         position: absolute;
@@ -173,6 +182,9 @@ ${'' /* background-color:beige; */}
         color: white;
         text-decoration: underline;
         font-size: 1.2rem;
+        &:not(:last-of-type) {
+          margin-bottom: 0.5rem;
+        }
       }
     &:nth-of-type(1){
       grid-area: one;
@@ -208,7 +220,6 @@ ${'' /* background-color:beige; */}
       background-color: #f5f5dc;
     }
   }
-
 }
 @media screen and (min-width: 280px) and (max-width: 1080px) {
     .background {
@@ -239,8 +250,6 @@ ${'' /* background-color:beige; */}
       }
     }
   }
-
 `;
 
-
-export default Projects
+export default Projects;
