@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import styled from 'styled-components';
 import Title from './Title';
 import prj1 from '../assets/prj1.jpg';
-import prj2 from '../assets/prj2.jpg';
+import prj2 from '../assets/prj2.png';
 import prj3 from '../assets/prj3.png';
 import prj4 from '../assets/prj4.jpeg';
 import prj5 from '../assets/prj5.jpg';
@@ -28,9 +28,9 @@ function Projects() {
     },
     {
       image: prj2,
-      description: 'Chat-Application- Using MERN',
-      github: 'https://github.com/user/project2',
-      additionalLink: 'https://live-demo.com/project2'
+      description: 'Netflix Clone- Using MERN Stack, ',
+      github: 'https://github.com/simrandung/netflix-clone',
+      additionalLink: 'https://66a4c5a1661797f8cb242ced--netflix-clone2.netlify.app/login'
     },
     {
       image: prj3,
