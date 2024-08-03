@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import Title from './Title';
 import prj1 from '../assets/prj1.jpg';
@@ -28,9 +28,9 @@ function Projects() {
     },
     {
       image: prj2,
-      description: 'Netflix Clone- Using MERN Stack, ',
+      description: 'Netflix Clone- Using MERN Stack',
       github: 'https://github.com/simrandung/netflix-clone',
-      additionalLink: 'https://66a4c5a1661797f8cb242ced--netflix-clone2.netlify.app/login'
+      additionalLink: 'https://drive.google.com/file/d/1E7M8nnd7d5LuGtVyX5VoWQCKRQsgaDX8/view?usp=sharing'
     },
     {
       image: prj3,
@@ -41,13 +41,10 @@ function Projects() {
     {
       image: prj4,
       description: 'Course Management System Using JAVA',
-      github: 'https://github.com/user/project4'
     },
     {
       image: prj5,
       description: 'Voice Assistant Using Python',
-      github: 'https://github.com/user/project5',
-      additionalLink: 'https://live-demo.com/project5'
     },
     {
       image: prj6,
@@ -87,12 +84,16 @@ function Projects() {
             <img src={image} alt={`prj${index + 1}`} />
             <div className="overlay">
               <div className="text">{description}</div>
-              <a href={github} target="_blank" rel="noopener noreferrer">
-                Check on GitHub
-              </a>
-              <a href={additionalLink} target="_blank" rel="noopener noreferrer">
-                Live
-              </a>
+              {github && (
+                <a href={github} target="_blank" rel="noopener noreferrer">
+                  Check on GitHub
+                </a>
+              )}
+              {additionalLink && (
+                <a href={additionalLink} target="_blank" rel="noopener noreferrer">
+                  {index === 1 || index === 2 || index === 5 ? 'Demo Video' : 'Live'}
+                </a>
+              )}
             </div>
           </motion.div>
         ))}

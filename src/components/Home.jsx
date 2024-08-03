@@ -65,7 +65,7 @@ function Home() {
           </div>
           <div className='col'>
             <strong>B.E/B.tech CGPI</strong>
-            <p>7.91</p>
+            <p>7.86</p>
           </div>
         </div>
       </motion.div>
